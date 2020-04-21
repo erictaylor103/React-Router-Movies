@@ -5,10 +5,10 @@ import { BrowserRouter as Router, useParams } from "react-router-dom";
 
 const Movie = (props) => {
   const [movie, setMovie] = useState();
-  const { id } = useParams();
+  
 
   useEffect(() => {
-    const id = 1;
+    const id = props.match.params.id;
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
 
@@ -20,8 +20,8 @@ const Movie = (props) => {
         .catch(error => {
           console.error(error);
         });
-
-  },[id]);
+        
+  },[props.match.params.id]);
   
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = () => {
